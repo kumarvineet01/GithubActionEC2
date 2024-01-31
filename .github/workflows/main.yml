@@ -16,6 +16,6 @@ jobs:
         run: |
             export AWS_REGION=ap-south-1
             export AWS_DEFAULT_REGION=ap-south-1
-            export AWS_ACCESS_KEY_ID=AKIA2DP4K3YWIGSWFSVF
-            export AWS_SECRET_ACCESS_KEY=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
-            aws ec2 start-instances --region ap-south-1 --instance-ids i-04be160031028ac2e
+            export AWS_ACCESS_KEY_ID=secret.AWS_ACCESS_KEY_ID
+            export AWS_SECRET_ACCESS_KEY=secret.AWS_SECRET_ACCESS_KEY
+            aws ec2 start-instances --region secret.AWS_REGION --instance-ids secret.AWS_EC2_INSTANCE_ID
