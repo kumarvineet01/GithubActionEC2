@@ -10,7 +10,8 @@ jobs:
       - name: Stop AWS EC2
         run: |
           #aws ec2 stop-instances --instance-ids ${{secrets.AWS_EC2_INSTANCE_ID }}
-          printenv
+          #printenv
+          echo ${{ secrets.AWS_ACCESS_EXTENTIA }}
           export AWS_REGION=ap-south-1
           aws ec2 start-instances --instance-ids ${{vars.AWS_EC2_INSTANCE_ID }}
         env:
