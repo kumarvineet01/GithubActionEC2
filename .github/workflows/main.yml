@@ -9,20 +9,15 @@ jobs:
     steps:
       - name: Stop AWS EC2
         run: |
-          permissions:
-          AWS_EC2_INSTANCE_ID: read
-          AWS_ACCESS_KEY_ID: read
-          AWS_SECRET_ACCESS_KEY: read
-          AWS_REGION: read
           #aws ec2 stop-instances --instance-ids ${{secrets.AWS_EC2_INSTANCE_ID }}
           export AWS_REGION=ap-south-1
           aws ec2 start-instances --instance-ids ${{vars.AWS_EC2_INSTANCE_ID }}
         env:
-          #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          #AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          #AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ vars.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ vars.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+          #AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
+          #AWS_SECRET_ACCESS_KEY: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+          #AWS_REGION: ${{ vars.AWS_REGION }}
 
           
